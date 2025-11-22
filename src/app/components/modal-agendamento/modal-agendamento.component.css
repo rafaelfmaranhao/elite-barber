@@ -1,0 +1,260 @@
+.modal {
+  display: block;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  overflow: auto;
+}
+
+.modal-content {
+  background-color: var(--preto-suave);
+  margin: 5% auto;
+  padding: 2rem;
+  border: 2px solid var(--dourado);
+  border-radius: 8px;
+  width: 90%;
+  max-width: 500px;
+  max-height: 85vh;
+  overflow-y: auto;
+}
+
+.close {
+  color: var(--dourado);
+  float: right;
+  font-size: 2rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.close:hover {
+  color: var(--branco);
+}
+
+.modal h2 {
+  color: var(--dourado);
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid var(--dourado);
+  padding-bottom: 1rem;
+}
+
+.step-agendamento {
+  animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.opcoes-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.opcao-item {
+  background-color: var(--preto);
+  border: 2px solid var(--dourado);
+  border-radius: 8px;
+  padding: 1.5rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.opcao-item:hover {
+  background-color: var(--preto-suave);
+  transform: translateX(5px);
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
+}
+
+.opcao-item.selecionada {
+  background-color: var(--dourado);
+  color: var(--preto);
+}
+
+.opcao-item.selecionada h4,
+.opcao-item.selecionada p {
+  color: var(--preto);
+}
+
+.opcao-item h4 {
+  color: var(--dourado);
+  margin: 0.5rem 0;
+  font-size: 1rem;
+}
+
+.opcao-item p {
+  color: var(--branco);
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.opcoes-horarios {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  gap: 0.75rem;
+  padding: 1rem;
+  background-color: var(--preto);
+  border-radius: 8px;
+}
+
+.horario-item {
+  background-color: var(--preto-suave);
+  border: 2px solid var(--dourado);
+  border-radius: 6px;
+  padding: 0.75rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-weight: bold;
+  color: var(--dourado);
+  font-size: 0.85rem;
+}
+
+.horario-item:hover:not(.indisponivel) {
+  background-color: var(--preto);
+  transform: scale(1.05);
+}
+
+.horario-item.selecionado {
+  background-color: var(--dourado);
+  color: var(--preto);
+}
+
+.horario-item:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  color: var(--dourado);
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.8rem;
+  background-color: var(--preto);
+  color: var(--branco);
+  border: 1px solid var(--dourado);
+  border-radius: 5px;
+  font-size: 1rem;
+  font-family: Arial, sans-serif;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  box-shadow: 0 0 10px var(--dourado);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.btn-enviar {
+  background-color: var(--dourado);
+  color: var(--preto);
+  padding: 1rem;
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.btn-enviar:hover:not(:disabled) {
+  transform: scale(1.02);
+}
+
+.btn-enviar:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-nav-cal {
+  background-color: var(--dourado);
+  color: var(--preto);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 0.9rem;
+  transition: all 0.3s;
+}
+
+.btn-nav-cal:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px var(--dourado);
+}
+
+.dia-header {
+  background-color: var(--preto-suave);
+  color: var(--dourado);
+  padding: 0.5rem;
+  font-weight: bold;
+  border-bottom: 1px solid var(--dourado);
+  font-size: 0.8rem;
+}
+
+.dia-dia {
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #555;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 0.9rem;
+  color: var(--branco);
+}
+
+.dia-dia:hover:not(.dia-desabilitado) {
+  background-color: var(--preto-suave);
+  border-color: var(--dourado);
+}
+
+.dia-vazio {
+  aspect-ratio: 1;
+  color: #555;
+}
+
+.dia-dia.dia-selecionado {
+  background-color: var(--dourado);
+  color: var(--preto);
+  border-color: var(--dourado);
+  font-weight: bold;
+}
+
+.dia-dia.dia-desabilitado {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.dia-dia.dia-desabilitado:hover {
+  background-color: transparent;
+  border-color: #555;
+}
+

@@ -1,0 +1,20 @@
+<header>
+  <div class="header-container">
+    <a href="#" class="logo">
+      <svg class="icon-tesoura" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="6" cy="6" r="2"/>
+        <circle cx="18" cy="6" r="2"/>
+        <path d="M 8 8 L 12 12 L 8 16" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M 16 8 L 12 12 L 16 16" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      Elite Barber
+    </a>
+    <nav>
+      <a (click)="scrollToServicos()">Serviços</a>
+      <a (click)="abrirModalAgendamento()">Agendar</a>
+      <a href="https://wa.me/558799999999" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+      <button class="btn-login" (click)="abrirModalLogin()" *ngIf="!authService.isLoggedIn()">Login</button>
+    </nav>
+  </div>
+</header>
+

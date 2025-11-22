@@ -1,0 +1,56 @@
+.servicos {
+  max-width: 1200px;
+  margin: 4rem auto;
+  padding: 0 2rem;
+}
+
+.servicos h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  color: var(--dourado);
+  margin-bottom: 3rem;
+  border-bottom: 2px solid var(--dourado);
+  padding-bottom: 1rem;
+}
+
+.grid-servicos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.card-servico {
+  background-color: var(--preto-suave);
+  border: 2px solid var(--dourado);
+  border-radius: 8px;
+  padding: 2rem;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card-servico:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+}
+
+.card-servico svg {
+  display: block;
+}
+
+.card-servico h3 {
+  color: var(--dourado);
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.card-servico p {
+  color: var(--branco);
+  margin-bottom: 1rem;
+}
+
+.preco {
+  color: var(--dourado);
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+

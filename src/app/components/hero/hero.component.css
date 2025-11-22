@@ -1,0 +1,43 @@
+.hero {
+  background: linear-gradient(135deg, var(--preto) 0%, var(--preto-suave) 100%);
+  padding: 6rem 2rem;
+  text-align: center;
+  border-bottom: 3px solid var(--dourado);
+}
+
+.hero h1 {
+  font-size: 3rem;
+  color: var(--dourado);
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero p {
+  font-size: 1.3rem;
+  color: var(--branco);
+  margin-bottom: 2rem;
+}
+
+.btn-agendar {
+  background-color: var(--dourado);
+  color: var(--preto);
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.btn-agendar:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 20px var(--dourado);
+}
+
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+}
+
