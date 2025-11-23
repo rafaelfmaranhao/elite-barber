@@ -1,143 +1,151 @@
-<div class="modal" *ngIf="mostrarModal" (click)="onClick($event)">
-  <div class="modal-content" (click)="$event.stopPropagation()">
-    <span class="close" (click)="fecharModal()">&times;</span>
-    <h2>Agende seu Corte</h2>
-    
-    <!-- STEP 1: SELECIONAR SERVIÇO -->
-    <div *ngIf="passoAtual === 1" class="step-agendamento">
-      <p style="color: var(--dourado); font-size: 1.1rem; margin-bottom: 1.5rem; font-weight: bold;">Qual serviço deseja?</p>
-      
-      <div class="opcoes-container">
-        <div class="opcao-item" (click)="selecionarServico('corte', 'Corte de Cabelo')">
-          <svg viewBox="0 0 24 24" fill="none" stroke="var(--dourado)" stroke-width="2" style="width: 40px; height: 40px; margin-bottom: 0.5rem;">
-            <circle cx="6" cy="6" r="2"/>
-            <circle cx="18" cy="6" r="2"/>
-            <path d="M 8 8 L 12 12 L 8 16" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M 16 8 L 12 12 L 16 16" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-          <h4>Corte de Cabelo</h4>
-        </div>
+@if (mostrarModal) {
+  <div class="modal" (click)="onClick($event)">
+    <div class="modal-content" (click)="$event.stopPropagation()">
+      <span class="close" (click)="fecharModal()">&times;</span>
+      <h2>Agende seu Corte</h2>
 
-        <div class="opcao-item" (click)="selecionarServico('barba', 'Barba')">
-          <svg viewBox="0 0 24 24" fill="none" stroke="var(--dourado)" stroke-width="2" style="width: 40px; height: 40px; margin-bottom: 0.5rem;">
-            <circle cx="12" cy="8" r="4"/>
-            <line x1="9" y1="12" x2="15" y2="12"/>
-            <path d="M 8 12 L 12 18 L 16 12" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-          <h4>Barba</h4>
-        </div>
+      <!-- STEP 1: SELECIONAR SERVIÇO -->
+      @if (passoAtual === 1) {
+        <div class="step-agendamento">
+          <p style="color: var(--dourado); font-size: 1.1rem; margin-bottom: 1.5rem; font-weight: bold;">Qual serviço deseja?</p>
 
-        <div class="opcao-item" (click)="selecionarServico('luzes', 'Luzes')">
-          <svg viewBox="0 0 24 24" fill="none" stroke="var(--dourado)" stroke-width="2" style="width: 40px; height: 40px; margin-bottom: 0.5rem;">
-            <path d="M 12 3 C 9 3 7 5 7 8 C 7 11 9 13 10 15 L 14 15 C 15 13 17 11 17 8 C 17 5 15 3 12 3" stroke-linecap="round" stroke-linejoin="round"/>
-            <rect x="10" y="15" width="4" height="2" stroke-linecap="round" stroke-linejoin="round"/>
-            <line x1="12" y1="17" x2="12" y2="19"/>
-          </svg>
-          <h4>Luzes</h4>
-        </div>
-      </div>
-    </div>
+          <div class="opcoes-container">
+            <div class="opcao-item" (click)="selecionarServico('corte', 'Corte de Cabelo')">
+              <svg viewBox="0 0 24 24" fill="none" stroke="var(--dourado)" stroke-width="2" style="width: 40px; height: 40px; margin-bottom: 0.5rem;">
+                <circle cx="6" cy="6" r="2"/>
+                <circle cx="18" cy="6" r="2"/>
+                <path d="M 8 8 L 12 12 L 8 16" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M 16 8 L 12 12 L 16 16" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <h4>Corte de Cabelo</h4>
+            </div>
 
-    <!-- STEP 2: SELECIONAR SUBCATEGORIA -->
-    <div *ngIf="passoAtual === 2" class="step-agendamento">
-      <p style="color: var(--dourado); font-size: 1.1rem; margin-bottom: 1.5rem; font-weight: bold;">
-        Qual tipo de {{ nomeServicoSelecionado.toLowerCase() }} você quer?
-      </p>
-      
-      <div class="opcoes-container" *ngIf="!mostrarOutroServico">
-        <div class="opcao-item" 
-             *ngFor="let sub of subcategorias"
-             [class.selecionada]="subcategoriaSelecionada?.id === sub.id"
-             (click)="selecionarSubcategoria(sub)">
-          <h4>{{ sub.nome }}</h4>
-          <p style="font-size: 0.9rem; color: #999;">R$ {{ sub.valor.toFixed(2) }}</p>
-        </div>
+            <div class="opcao-item" (click)="selecionarServico('barba', 'Barba')">
+              <svg viewBox="0 0 24 24" fill="none" stroke="var(--dourado)" stroke-width="2" style="width: 40px; height: 40px; margin-bottom: 0.5rem;">
+                <circle cx="12" cy="8" r="4"/>
+                <line x1="9" y1="12" x2="15" y2="12"/>
+                <path d="M 8 12 L 12 18 L 16 12" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <h4>Barba</h4>
+            </div>
 
-        <div class="opcao-item" (click)="abrirOutroServico()">
-          <svg viewBox="0 0 24 24" fill="none" stroke="var(--dourado)" stroke-width="2" style="width: 30px; height: 30px; margin: 0 auto 0.5rem;">
-            <line x1="12" y1="5" x2="12" y2="19"/>
-            <line x1="5" y1="12" x2="19" y2="12"/>
-          </svg>
-          <h4>Outro</h4>
-          <p style="font-size: 0.9rem; color: #999;">Especifique o serviço</p>
-        </div>
-      </div>
-
-      <div *ngIf="mostrarOutroServico" style="margin-top: 1.5rem; padding: 1rem; background-color: var(--preto); border-radius: 8px; border: 1px solid var(--dourado);">
-        <div class="form-group">
-          <label>Nome do Serviço</label>
-          <input type="text" [(ngModel)]="outroServicoNome" placeholder="Ex: Progressiva, Alinhamento, etc">
-        </div>
-        <div class="form-group">
-          <label>Valor (R$)</label>
-          <input type="number" [(ngModel)]="outroServicoValor" placeholder="0,00" step="0.01" min="0">
-        </div>
-        <button type="button" class="btn-enviar" (click)="confirmarOutroServico()" style="margin-bottom: 0;">Confirmar Serviço</button>
-      </div>
-      
-      <div style="display: flex; gap: 1rem; margin-top: 2rem;">
-        <button class="btn-enviar" style="background-color: #666; flex: 1;" (click)="voltarPasso()">Voltar</button>
-        <button class="btn-enviar" style="flex: 1;" (click)="avancarPasso()" [disabled]="!subcategoriaSelecionada">Continuar</button>
-      </div>
-    </div>
-
-    <!-- STEP 3: SELECIONAR DATA -->
-    <div *ngIf="passoAtual === 3" class="step-agendamento">
-      <p style="color: var(--dourado); font-size: 1.1rem; margin-bottom: 1.5rem; font-weight: bold;">Selecione data e horário</p>
-      
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
-        <button type="button" class="btn-nav-cal" (click)="mesAnterior()" style="padding: 0.5rem;">← Anterior</button>
-        <button type="button" class="btn-nav-cal" (click)="proximoMes()" style="padding: 0.5rem;">Próximo →</button>
-      </div>
-
-      <div style="background-color: var(--preto); border: 2px solid var(--dourado); border-radius: 8px; padding: 1rem; margin-bottom: 1.5rem;">
-        <div style="text-align: center; margin-bottom: 1rem;">
-          <h3 style="color: var(--dourado); margin: 0; font-size: 1.1rem;">{{ getMesAnoFormatado() }}</h3>
-        </div>
-        <div style="display: grid; grid-template-columns: repeat(7, 1fr); gap: 0.3rem; text-align: center;">
-          <div *ngFor="let dia of diasCalendario" 
-               [class]="'dia-' + dia.tipo"
-               [class.dia-selecionado]="dia.selecionado"
-               [class.dia-desabilitado]="dia.desabilitado"
-               (click)="!dia.desabilitado && dia.tipo === 'dia' && selecionarData(dia.data)">
-            {{ dia.numero || dia.texto }}
+            <div class="opcao-item" (click)="selecionarServico('luzes', 'Luzes')">
+              <svg viewBox="0 0 24 24" fill="none" stroke="var(--dourado)" stroke-width="2" style="width: 40px; height: 40px; margin-bottom: 0.5rem;">
+                <path d="M 12 3 C 9 3 7 5 7 8 C 7 11 9 13 10 15 L 14 15 C 15 13 17 11 17 8 C 17 5 15 3 12 3" stroke-linecap="round" stroke-linejoin="round"/>
+                <rect x="10" y="15" width="4" height="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <line x1="12" y1="17" x2="12" y2="19"/>
+              </svg>
+              <h4>Luzes</h4>
+            </div>
           </div>
         </div>
-      </div>
+      }
 
-      <div *ngIf="mostrarHorarios">
-        <p style="color: var(--dourado); font-size: 1rem; margin-bottom: 0.75rem; font-weight: bold;">Horários disponíveis:</p>
-        <div class="opcoes-horarios">
-          <button type="button" 
-                  class="horario-item"
-                  *ngFor="let horario of horariosDisponiveis"
-                  [class.selecionado]="horarioSelecionado === horario"
-                  (click)="selecionarHorario(horario)">
-            {{ horario }}
-          </button>
+      <!-- STEP 2: SELECIONAR SUBCATEGORIA -->
+      @if (passoAtual === 2) {
+        <div class="step-agendamento">
+          <p style="color: var(--dourado); font-size: 1.1rem; margin-bottom: 1.5rem; font-weight: bold;">
+            Qual tipo de {{ nomeServicoSelecionado.toLowerCase() }} você quer?
+          </p>
+
+          @if (!mostrarOutroServico) {
+            <div class="opcoes-container">
+              @for (sub of subcategorias; track sub.id) {
+                <div class="opcao-item" [class.selecionada]="subcategoriaSelecionada?.id === sub.id" (click)="selecionarSubcategoria(sub)">
+                  <h4>{{ sub.nome }}</h4>
+                  <p style="font-size: 0.9rem; color: #999;">R$ {{ sub.valor.toFixed(2) }}</p>
+                </div>
+              }
+
+              <div class="opcao-item" (click)="abrirOutroServico()">
+                <svg viewBox="0 0 24 24" fill="none" stroke="var(--dourado)" stroke-width="2" style="width: 30px; height: 30px; margin: 0 auto 0.5rem;">
+                  <line x1="12" y1="5" x2="12" y2="19"/>
+                  <line x1="5" y1="12" x2="19" y2="12"/>
+                </svg>
+                <h4>Outro</h4>
+                <p style="font-size: 0.9rem; color: #999;">Especifique o serviço</p>
+              </div>
+            </div>
+          }
+
+          @if (mostrarOutroServico) {
+            <div style="margin-top: 1.5rem; padding: 1rem; background-color: var(--preto); border-radius: 8px; border: 1px solid var(--dourado);">
+              <div class="form-group">
+                <label>Nome do Serviço</label>
+                <input type="text" [(ngModel)]="outroServicoNome" placeholder="Ex: Progressiva, Alinhamento, etc">
+              </div>
+              <div class="form-group">
+                <label>Valor (R$)</label>
+                <input type="number" [(ngModel)]="outroServicoValor" placeholder="0,00" step="0.01" min="0">
+              </div>
+              <button type="button" class="btn-enviar" (click)="confirmarOutroServico()" style="margin-bottom: 0;">Confirmar Serviço</button>
+            </div>
+          }
+
+          <div style="display: flex; gap: 1rem; margin-top: 2rem;">
+            <button class="btn-enviar" style="background-color: #666; flex: 1;" (click)="voltarPasso()">Voltar</button>
+            <button class="btn-enviar" style="flex: 1;" (click)="avancarPasso()" [disabled]="!subcategoriaSelecionada">Continuar</button>
+          </div>
         </div>
-      </div>
+      }
 
-      <div class="form-group" style="margin-top: 1.5rem;">
-        <label>Observações (opcional)</label>
-        <textarea [(ngModel)]="observacoes" placeholder="Ex: Tenho referência do corte, sou alérgico a certos produtos, etc"></textarea>
-      </div>
+      <!-- STEP 3: SELECIONAR DATA -->
+      @if (passoAtual === 3) {
+        <div class="step-agendamento">
+          <p style="color: var(--dourado); font-size: 1.1rem; margin-bottom: 1.5rem; font-weight: bold;">Selecione data e horário</p>
 
-      <div style="display: flex; gap: 1rem; margin-top: 2rem;">
-        <button class="btn-enviar" style="background-color: #666; flex: 1;" (click)="voltarPasso()">Voltar</button>
-        <button class="btn-enviar" style="flex: 1;" (click)="avancarPasso()" [disabled]="!dataSelecionada || !horarioSelecionado">Continuar</button>
-      </div>
-    </div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+            <button type="button" class="btn-nav-cal" (click)="mesAnterior()" style="padding: 0.5rem;">← Anterior</button>
+            <button type="button" class="btn-nav-cal" (click)="proximoMes()" style="padding: 0.5rem;">Próximo →</button>
+          </div>
 
-    <!-- STEP 4: CONFIRMAR -->
-    <div *ngIf="passoAtual === 4" class="step-agendamento">
-      <p style="color: var(--dourado); font-size: 1.1rem; margin-bottom: 1.5rem; font-weight: bold;">Confirme seus dados</p>
-      <div style="background-color: var(--preto); padding: 1.5rem; border-left: 4px solid var(--dourado); border-radius: 4px; margin-bottom: 1.5rem;" [innerHTML]="getResumoAgendamento()"></div>
-      <div style="display: flex; gap: 1rem;">
-        <button class="btn-enviar" style="background-color: #666; flex: 1;" (click)="voltarPasso()">Voltar</button>
-        <button class="btn-enviar" style="flex: 1;" (click)="confirmarAgendamento()">Confirmar Agendamento</button>
-      </div>
+          <div style="background-color: var(--preto); border: 2px solid var(--dourado); border-radius: 8px; padding: 1rem; margin-bottom: 1.5rem;">
+            <div style="text-align: center; margin-bottom: 1rem;">
+              <h3 style="color: var(--dourado); margin: 0; font-size: 1.1rem;">{{ getMesAnoFormatado() }}</h3>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(7, 1fr); gap: 0.3rem; text-align: center;">
+              @for (dia of diasCalendario; track dia.data) {
+                <div [class]="'dia-' + dia.tipo" [class.dia-selecionado]="dia.selecionado" [class.dia-desabilitado]="dia.desabilitado" (click)="!dia.desabilitado && dia.tipo === 'dia' && selecionarData(dia.data)">
+                  {{ dia.numero || dia.texto }}
+                </div>
+              }
+            </div>
+          </div>
+
+          @if (mostrarHorarios) {
+            <p style="color: var(--dourado); font-size: 1rem; margin-bottom: 0.75rem; font-weight: bold;">Horários disponíveis:</p>
+            <div class="opcoes-horarios">
+              @for (horario of horariosDisponiveis; track horario) {
+                <button type="button" class="horario-item" [class.selecionado]="horarioSelecionado === horario" (click)="selecionarHorario(horario)">
+                  {{ horario }}
+                </button>
+              }
+            </div>
+          }
+
+          <div class="form-group" style="margin-top: 1.5rem;">
+            <label>Observações (opcional)</label>
+            <textarea [(ngModel)]="observacoes" placeholder="Ex: Tenho referência do corte, sou alérgico a certos produtos, etc"></textarea>
+          </div>
+
+          <div style="display: flex; gap: 1rem; margin-top: 2rem;">
+            <button class="btn-enviar" style="background-color: #666; flex: 1;" (click)="voltarPasso()">Voltar</button>
+            <button class="btn-enviar" style="flex: 1;" (click)="avancarPasso()" [disabled]="!dataSelecionada || !horarioSelecionado">Continuar</button>
+          </div>
+        </div>
+      }
+
+      <!-- STEP 4: CONFIRMAR -->
+      @if (passoAtual === 4) {
+        <div class="step-agendamento">
+          <p style="color: var(--dourado); font-size: 1.1rem; margin-bottom: 1.5rem; font-weight: bold;">Confirme seus dados</p>
+          <div style="background-color: var(--preto); padding: 1.5rem; border-left: 4px solid var(--dourado); border-radius: 4px; margin-bottom: 1.5rem;" [innerHTML]="getResumoAgendamento()"></div>
+          <div style="display: flex; gap: 1rem;">
+            <button class="btn-enviar" style="background-color: #666; flex: 1;" (click)="voltarPasso()">Voltar</button>
+            <button class="btn-enviar" style="flex: 1;" (click)="confirmarAgendamento()">Confirmar Agendamento</button>
+          </div>
+        </div>
+      }
     </div>
   </div>
-</div>
-
+}

@@ -9,6 +9,7 @@ export interface Agendamento {
   status: string;
   observacoes?: string;
   dataCriacao: string;
+  nomeSubcategoria?: string;
 }
 
 export interface Subcategoria {

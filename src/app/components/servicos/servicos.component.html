@@ -1,12 +1,14 @@
 <section class="servicos" id="servicos">
   <h2>Nossos Serviços</h2>
   <div class="grid-servicos">
-    <div class="card-servico" *ngFor="let servico of servicos">
-      <div [innerHTML]="servico.svg"></div>
-      <h3>{{ servico.nome }}</h3>
-      <p>{{ servico.descricao }}</p>
-      <div class="preco">R$ {{ servico.preco.toFixed(2) }}</div>
-    </div>
+    @for (servico of servicos; track servico.nome) {
+      <div class="card-servico">
+        <div [innerHTML]="servico.svg"></div>
+        <h3>{{ servico.nome }}</h3>
+        <p>{{ servico.descricao }}</p>
+        <div class="preco">R$ {{ servico.preco.toFixed(2) }}</div>
+      </div>
+    }
   </div>
 </section>
 

@@ -128,7 +128,8 @@ export class AgendamentoService {
       whatsapp: usuario.whatsapp,
       status: 'confirmado',
       observacoes: this.agendamentoAtual.observacoes || undefined,
-      dataCriacao: new Date().toLocaleDateString('pt-BR')
+      dataCriacao: new Date().toLocaleDateString('pt-BR'),
+      nomeSubcategoria: this.agendamentoAtual.subcategoria?.nome || ''
     };
 
     const agendamentos = this.agendamentosSubject.value;
