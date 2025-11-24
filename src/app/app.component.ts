@@ -21,6 +21,6 @@ import { PainelClienteComponent } from './components/painel-cliente/painel-clien
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'Elite Barber';
+  
 }
 

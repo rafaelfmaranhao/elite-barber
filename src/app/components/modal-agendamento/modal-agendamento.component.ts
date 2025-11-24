@@ -37,7 +37,7 @@ export class ModalAgendamentoComponent implements OnInit, OnDestroy {
   constructor(
     private agendamentoService: AgendamentoService,
     private authService: AuthService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.abrirModalListener = () => this.abrirModal();
@@ -291,29 +291,28 @@ export class ModalAgendamentoComponent implements OnInit, OnDestroy {
     const dataFormatada = data.toLocaleDateString('pt-BR', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
     const nomeServico = this.agendamentoService.getNomeServico(agendamento.subcategoria) || agendamento.servico;
 
-    const mensagem = `Olá ${usuario.nome}!
+    const mensagem = `Seu agendamento foi confirmado:\n` +
+      `Nome: ${usuario.nome}!\n` +
+      `Serviço: ${nomeServico}\n` +
+      `Data: ${dataFormatada}\n` +
+      `Horário: ${agendamento.horario}\n` +
+      `Cliente: ${usuario.nome}\n` +
+      `E-mail: ${usuario.email}\n` +
+      `WhatsApp: ${usuario.whatsapp}\n` +
+      `${agendamento.observacoes ? `Observações: ${agendamento.observacoes}` : ''}\n` +
 
-Seu agendamento foi confirmado:
+      `\nObrigado por escolher nossos serviços!` +
 
-Serviço: ${nomeServico}
-Data: ${dataFormatada}
-Horário: ${agendamento.horario}
-Cliente: ${usuario.nome}
-E-mail: ${usuario.email}
-WhatsApp: ${usuario.whatsapp}
-${agendamento.observacoes ? `Observações: ${agendamento.observacoes}` : ''}
-
-Obrigado por escolher nossos serviços!
-
-Elite Barber`;
+      `\nElite Barber`;
 
     const emailLink = `mailto:${usuario.email}?subject=Confirmação de Agendamento - Elite Barber&body=${encodeURIComponent(mensagem)}`;
-    window.open(emailLink);
+    // window.open(emailLink);
 
     const telefone = '5583991816152';
     const mensagemWhatsApp = `Olá, tenho um novo agendamento:\n\n${mensagem}`;
     const whatsappLink = `https://wa.me/${telefone}?text=${encodeURIComponent(mensagemWhatsApp)}`;
     window.open(whatsappLink);
+    console.log(whatsappLink);
   }
 }
 
