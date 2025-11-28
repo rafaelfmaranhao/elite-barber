@@ -45,12 +45,12 @@ src/
 ```bash
 git clone <seu-repositorio>
 cd elite-barber
-```
+```  
 
 2. Instale as dependências:
 ```bash
 npm install
-```
+```  
 
 3. Execute o projeto em desenvolvimento:
 ```bash
@@ -59,12 +59,12 @@ npm start
 Ou apenas
 ```bash
 ng serve
-```
+```  
 
 4. Abra seu navegador e acesse:
 ```
 http://localhost:4200
-```
+```  
 
 ### Build para Produção
 
@@ -136,11 +136,8 @@ Responsável por:
 
 ## 👨‍💻 Autores
 
-**Rafael Fernandes Maranhão** 
-**Diego Ferreira da Silva** 
-**Samuel Vitor das Chagas Leite** 
-**Arthur Fellipe Lima da Silva**
+- **Rafael Fernandes Maranhão**  
+- **Diego Ferreira da Silva**  
+- **Samuel Vitor das Chagas Leite**  
+- **Arthur Fellipe Lima da Silva**  
 
-## 📝 Licença
-
-Este projeto é de uso educacional.
