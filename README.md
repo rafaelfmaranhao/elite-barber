@@ -134,11 +134,11 @@ Responsável por:
 - **localStorage**: Persistência de dados no navegador
 - **Componentes Standalone**: Arquitetura modular sem módulos
 
-## 👨‍💻 Autor
+## 👨‍💻 Autores
 
-**Rafael Fernandes Maranhão**
-**Diego Ferreira da Silva**
-**Samuel Vitor das Chagas Leite**
+**Rafael Fernandes Maranhão** 
+**Diego Ferreira da Silva** 
+**Samuel Vitor das Chagas Leite** 
 **Arthur Fellipe Lima da Silva**
 
 ## 📝 Licença
