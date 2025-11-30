@@ -1,0 +1,40 @@
+h2 {
+  color: var(--dourado, #ccb97b);
+  margin-top: 2rem;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.container {
+  width: 1200px;
+}
+
+.tabela-cortes {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1.2rem;
+}
+
+.tabela-cortes th,
+.tabela-cortes td {
+  border: 1px solid #ccb97b;
+  padding: 12px;
+  text-align: center;
+  background: #222;
+  color: #eee;
+}
+
+.tabela-cortes th {
+  background: var(--dourado, #ccb97b);
+  color: #222;
+}
+
+.tabela-cortes img {
+  width: 80px;
+  border-radius: 8px;
+}

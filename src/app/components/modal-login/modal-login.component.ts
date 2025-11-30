@@ -14,11 +14,9 @@ export class ModalLoginComponent implements OnInit, OnDestroy {
   mostrarModal = false;
   abaAtiva: 'login' | 'cadastro' = 'login';
   
-  // Formulário de login
   emailLogin = '';
   senhaLogin = '';
   
-  // Formulário de cadastro
   nomeCadastro = '';
   emailCadastro = '';
   whatsappCadastro = '';

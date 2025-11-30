@@ -16,7 +16,7 @@ header {
   padding: 0 2rem;
 }
 
-.logo {
+.logo, .logo h1 {
   font-size: 1.8rem;
   font-weight: bold;
   color: var(--dourado);

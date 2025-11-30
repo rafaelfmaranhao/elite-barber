@@ -8,7 +8,6 @@
         <button class="tab-btn" [class.active]="abaAtiva === 'cadastro'" (click)="mudarTab('cadastro')">Cadastro</button>
       </div>
 
-      <!-- ABA LOGIN -->
       @if (abaAtiva === 'login') {
         <div class="tab-content active">
           <form (ngSubmit)="fazerLogin($event)">
@@ -25,7 +24,6 @@
         </div>
       }
 
-      <!-- ABA CADASTRO -->
       @if (abaAtiva === 'cadastro') {
         <div class="tab-content active">
           <form (ngSubmit)="fazerCadastro($event)">

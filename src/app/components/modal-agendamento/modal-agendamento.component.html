@@ -4,7 +4,6 @@
       <span class="close" (click)="fecharModal()">&times;</span>
       <h2>Agende seu Corte</h2>
 
-      <!-- STEP 1: SELECIONAR SERVIÇO -->
       @if (passoAtual === 1) {
         <div class="step-agendamento">
           <p style="color: var(--dourado); font-size: 1.1rem; margin-bottom: 1.5rem; font-weight: bold;">Qual serviço deseja?</p>
@@ -41,7 +40,6 @@
         </div>
       }
 
-      <!-- STEP 2: SELECIONAR SUBCATEGORIA -->
       @if (passoAtual === 2) {
         <div class="step-agendamento">
           <p style="color: var(--dourado); font-size: 1.1rem; margin-bottom: 1.5rem; font-weight: bold;">
@@ -89,7 +87,6 @@
         </div>
       }
 
-      <!-- STEP 3: SELECIONAR DATA -->
       @if (passoAtual === 3) {
         <div class="step-agendamento">
           <p style="color: var(--dourado); font-size: 1.1rem; margin-bottom: 1.5rem; font-weight: bold;">Selecione data e horário</p>
