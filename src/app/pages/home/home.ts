@@ -9,11 +9,12 @@ import { ModalLoginComponent } from '../../components/modal-login/modal-login.co
 @Component({
   selector: 'app-home',
   imports: [
-    HeaderComponent, 
-    HeroComponent, 
-    ServicosComponent, 
-    ModalLoginComponent
-  ],
+    HeaderComponent,
+    HeroComponent,
+    ServicosComponent,
+    ModalLoginComponent,
+    ModalAgendamentoComponent
+],
   templateUrl: './home.html',
   styleUrl: './home.css',
 })

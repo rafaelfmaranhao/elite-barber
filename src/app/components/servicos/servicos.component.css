@@ -54,3 +54,30 @@
   font-weight: bold;
 }
 
+.fazer-login {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.fazer-login .login-hero {
+  color: var(--branco);
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+}
+
+.fazer-login .btn-login {
+  background-color: var(--dourado);
+  color: var(--preto);
+  border: none;
+  padding: 0.8rem 1.5rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.fazer-login .btn-login:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 20px var(--dourado);
+}

@@ -54,5 +54,10 @@ export class ServicosComponent {
       `
     }
   ];
+
+  abrirModalLogin(): void {
+    const event = new CustomEvent('abrirModalLogin');
+    window.dispatchEvent(event);
+  }
 }
 

@@ -14,9 +14,9 @@
       <a (click)="abrirModalAgendamento()">Agendar</a>
       <a href="https://wa.me/558799999999" target="_blank" rel="noopener noreferrer">WhatsApp</a>
         @if (!authService.isLoggedIn()) {
-          <button class="btn-login" (click)="abrirModalLogin()">Login</button>
+          <button class="btn-login" (click)="abrirModalLogin()">Login / Cadastro</button>
         } @else {
-          <a routerLink="painel">Painel</a>
+          <a routerLink="/painel">Painel</a>
           <button class="btn-logout" (click)="logout()">Sair</button>
         }
 

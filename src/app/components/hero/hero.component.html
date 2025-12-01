@@ -1,6 +1,10 @@
 <section class="hero">
   <h1>Elite Barber</h1>
   <p>Experiência Premium em Barbearia</p>
-  <button class="btn-agendar" (click)="abrirModalAgendamento()">Agende seu Corte Agora</button>
+  @if (!authService.isLoggedIn()) {
+    <button class="btn-agendar" (click)="abrirModalLogin()">Agende seu Corte Agora</button>
+  } @else {
+    <button class="btn-agendar" (click)="abrirModalAgendamento()">Agende seu Corte Agora</button>
+  }
 </section>
 
