@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-modal-login',
@@ -26,7 +27,7 @@ export class ModalLoginComponent implements OnInit, OnDestroy {
   private abrirModalListener: any;
   private fecharModalListener: any;
 
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService, private router: Router) {}
 
   ngOnInit(): void {
     this.abrirModalListener = () => this.abrirModal();
@@ -88,6 +89,7 @@ export class ModalLoginComponent implements OnInit, OnDestroy {
     if (this.authService.login(this.emailLogin, this.senhaLogin)) {
       this.fecharModal();
       alert('Login realizado com sucesso!');
+      this.router.navigate(['/painel']);
       window.dispatchEvent(new CustomEvent('atualizarPainel'));
     } else {
       alert('E-mail ou senha incorretos!');

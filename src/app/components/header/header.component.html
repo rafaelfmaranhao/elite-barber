@@ -15,7 +15,11 @@
       <a href="https://wa.me/558799999999" target="_blank" rel="noopener noreferrer">WhatsApp</a>
         @if (!authService.isLoggedIn()) {
           <button class="btn-login" (click)="abrirModalLogin()">Login</button>
+        } @else {
+          <a routerLink="painel">Painel</a>
+          <button class="btn-logout" (click)="logout()">Sair</button>
         }
+
     </nav>
   </div>
 </header>

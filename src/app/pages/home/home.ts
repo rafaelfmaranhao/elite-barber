@@ -12,8 +12,6 @@ import { ModalLoginComponent } from '../../components/modal-login/modal-login.co
     HeaderComponent, 
     HeroComponent, 
     ServicosComponent, 
-    PainelClienteComponent, 
-    ModalAgendamentoComponent, 
     ModalLoginComponent
   ],
   templateUrl: './home.html',

@@ -54,7 +54,7 @@ nav a:hover {
   color: var(--dourado);
 }
 
-.btn-login {
+.btn-login, .btn-logout {
   background-color: var(--dourado);
   color: var(--preto);
   padding: 0.7rem 1.5rem;
@@ -65,7 +65,13 @@ nav a:hover {
   transition: transform 0.3s;
 }
 
-.btn-login:hover {
+.btn-logout {
+  background-color: var(--preto-suave);
+  color: var(--branco);
+  border: 2px solid var(--dourado);
+}
+
+.btn-login:hover, .btn-logout:hover {
   transform: scale(1.05);
 }
 
