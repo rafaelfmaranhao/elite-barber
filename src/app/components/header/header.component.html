@@ -14,7 +14,7 @@
       @if (authService.isLoggedIn()) {
         <a (click)="abrirModalAgendamento()">Agendar</a>
       } @else {
-        <a (click)="abrirModalLogin()"></a>
+        <a (click)="abrirModalLogin()">Agendar</a>
       }
       <a href="https://wa.me/5583991816152" target="_blank" rel="noopener noreferrer">WhatsApp</a>
         @if (!authService.isLoggedIn()) {
