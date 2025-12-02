@@ -14,10 +14,15 @@ src/
 │   ├── components/
 │   │   ├── header/                    # Cabeçalho com navegação
 │   │   ├── hero/                      # Seção hero com call-to-action
-│   │   ├── servicos/                  # Listagem de serviços
+│   │   ├── menu-sections/             # Seções da página menu
 │   │   ├── modal-agendamento/         # Modal com fluxo de agendamento
 │   │   ├── modal-login/               # Modal de autenticação
-│   │   └── painel-cliente/            # Painel com agendamentos do usuário
+│   │   ├── painel-cliente/            # Painel com agendamentos do usuário
+│   │   └── servicos/                  # Listagem de serviços
+│   ├── pages/                       # Páginas do projeto
+│   │   ├── home/
+│   │   ├── menu/
+│   │   └── painel/
 │   ├── services/
 │   │   ├── auth.service.ts            # Autenticação e gerenciamento de usuário
 │   │   └── agendamento.service.ts     # Gerenciamento de agendamentos
@@ -28,7 +33,8 @@ src/
 │   ├── app.component.html
 │   ├── app.component.css
 │   ├── app.config.ts                  # Configuração da aplicação
-│   └── styles.css                     # Estilos globais
+|   └── app.routes.ts                  # Configuração das rotas da aplicação
+├── styles.css                     # Estilos globais
 ├── index.html
 └── main.ts
 ```
@@ -85,28 +91,31 @@ Os arquivos compilados estarão em `dist/`
 
 ## 🧩 Componentes
 
-### HeaderComponent
+### Header
 Cabeçalho com navegação principal e botão de login/acesso ao painel.
 
-### HeroComponent
+### Hero
 Seção inicial com apresentação do negócio e call-to-action.
 
-### ServicosComponent
+### Servicos
 Listagem de serviços disponíveis oferecidos pela barbearia.
 
-### ModalAgendamentoComponent
+### MenuSections
+Menu com tabelas de valores, imagens e descrição dos serviços
+
+### ModalAgendamento
 Modal com fluxo de agendamento em 4 etapas:
 1. **Seleção de Serviço**: Escolha o tipo de serviço desejado
 2. **Seleção de Subcategoria**: Escolha variações do serviço (ex: tipo de corte)
 3. **Seleção de Data e Horário**: Escolha data e horário disponível
 4. **Confirmação**: Revise os dados e confirme o agendamento
 
-### ModalLoginComponent
+### ModalLogin
 Modal com abas para:
 - Login de usuários existentes
 - Cadastro de novos usuários
 
-### PainelClienteComponent
+### PainelCliente
 Painel exibido após autenticação com:
 - Lista de agendamentos do usuário
 - Informações do perfil
