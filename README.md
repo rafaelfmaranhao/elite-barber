@@ -1,4 +1,4 @@
-# Elite Barber - Angular
+# Elite Barber - Plataforma para Barbearia
 
 Plataforma de agendamento para barbearia desenvolvida com Angular 21, utilizando componentes standalone e arquitetura modular.
 
